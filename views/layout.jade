@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/mdb.min.css')
-    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css')
   body(class="fixed-sn blue-skin")
     header
       nav(class="navbar navbar-fixed-top scrolling-navbar double-nav")
@@ -17,7 +17,17 @@ html
             i(class="fa fa-bars")
         div(class="breadcrumb-dn")
           p Material Design for Bootstrap
+        ul(class="nav navbar-nav float-xs-right")
+          li(class="nav-item dropdown")
+            a(class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                i(class="fa fa-user")
+              div(class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut")
+                a(class="dropdown-item" href="#") blue
+                a(class="dropdown-item" href="#") right
+                a(class="dropdown-item" href="#") A
+
     block content
+    include partials/footer
     script(src="/js/mdb.min.js")
     script(src="/js/tether.min.js")
     script(src="/js/jquery-3.1.1.min.js")
