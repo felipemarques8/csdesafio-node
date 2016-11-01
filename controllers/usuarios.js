@@ -23,7 +23,7 @@ module.exports = function(app){
 				var model      = new Usuario();
 				model.nome     = req.body.nome;
 				model.email    = req.body.email;
-				model.site     = req.body.site;
+				model.telefone     = req.body.telefone;
 				model.password = model.generateHash(req.body.password);
 
 				Usuario.findOne({'email': model.email}, function(err,data){
@@ -86,7 +86,7 @@ module.exports = function(app){
 				Usuario.findById(req.params.id, function(err,data){
 					var model  = data;
 					model.nome = req.body.nome;
-					model.site = req.body.site;
+					model.telefone = req.body.telefone;
 
 					model.save(function(err){
 						if(err){

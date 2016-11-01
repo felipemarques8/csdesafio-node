@@ -5,12 +5,11 @@ module.exports = function(req,res){
 	var updateUrl = !createUrl;
 
 	req.assert('nome', 'Informe o seu Nome.').notEmpty();
+	req.assert('telefone', 'Informe o seu Telefone.').notEmpty();
 	if(createUrl){
 		req.assert('email', 'E-mail inválido.').isEmail();
 		req.assert('password', 'Sua senha deve conter de 6 a 10 caracteres.').len(6,10);
 	}
-	req.assert('site','Site não é uma url válida.').isURL();
-
 	var validateErros = req.validationErrors() || [];
 
 	//verificar se a senha confere
