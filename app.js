@@ -1,13 +1,24 @@
-var express      = require('express');
-var path         = require('path');
-var favicon      = require('static-favicon');
-var logger       = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var session      = require('express-session');
+var express          = require('express'),
+    path             = require('path'),
+	favicon          = require('static-favicon'),
+	logger           = require('morgan'),
+	cookieParser     = require('cookie-parser'),
+	bodyParser   	 = require('body-parser'),
+	session      	 = require('express-session'),
+	load         	 = require('express-load'),
+	mongoose         = require('mongoose'),
+	flash            = require('express-flash'),
+	moment           = require('moment'),
+	expressValidator = require('express-validator');
 
-var routes = require('./routes/index');
-var users  = require('./routes/users');
+//conexão com o mongodb
+mongoose.connect('mongodb://localhost/desafionode', function(err){
+	if(err){
+		console.log("Erro ao conectar no mongodb: "+err);
+	}else{
+		console.log("Conexão com o mongodb efetuada com sucesso!");
+	}
+});
 
 var app = express();
 
@@ -22,12 +33,24 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(expressValidator());
 app.use(cookieParser());
-app.use(session({ secret: 'sua-chave-secreta' }));
+app.use(session({ secret: 'desafioodejs009933' }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
-app.use('/', routes);
-app.use('/users', users);
+//helpers
+app.use(function(req,res,next){
+	res.locals.session  = req.session.usuario;
+	res.locals.isLogged = req.session.usuario ? true : false;
+	res.locals.moment   = moment;
+	next();
+});
+
+//app.use('/', routes);
+//app.use('Users', users);
+
+load('models').then('controllers').then('routes').into(app);
 
 //middleware
 app.use(erros.notfound);

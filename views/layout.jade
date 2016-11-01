@@ -1,34 +1,22 @@
 doctype html
 html
-  head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device=width, initial-scale=1")
-    meta(http-equiv="X-UA-Compatible" content="IE-edge")
-    title= title
-    link(rel='stylesheet', href='/css/style.css')
-    link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/mdb.min.css')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css')
-  body(class="fixed-sn blue-skin")
-    header
-      nav(class="navbar navbar-fixed-top scrolling-navbar double-nav")
-        div(class="float-xs-left")
-          a(href="#" data-activates="slide-out" class="button-collapse")
-            i(class="fa fa-bars")
-        div(class="breadcrumb-dn")
-          p Material Design for Bootstrap
-        ul(class="nav navbar-nav float-xs-right")
-          li(class="nav-item dropdown")
-            a(class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-                i(class="fa fa-user")
-              div(class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut")
-                a(class="dropdown-item" href="#") blue
-                a(class="dropdown-item" href="#") right
-                a(class="dropdown-item" href="#") A
+head
+	meta(charset="utf-8")
+	meta(name="viewport" content="width=device-width, initial-scale=1")
+	title= title
+	link(rel="stylesheet", href="/css/bootstrap.min.css")
+	link(rel="stylesheet", href="/css/bootstrap-aux.css")
+body
+	div(class="container")
+		if isLogged
+			div(class="masthead")
+				h3(class="text-muted") Desafio Node.js
+				include partials/menu
+		block content
 
-    block content
-    include partials/footer
-    script(src="/js/mdb.min.js")
-    script(src="/js/tether.min.js")
-    script(src="/js/jquery-3.1.1.min.js")
-    script(src="/js/conf.min.js")
+		if isLogged
+			include partials/footer
+
+	script(src="/js/jquery.min.js")
+	script(src="/js/bootstrap.min.js")
+	block scripts

@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	h1 Cadastro de Amigos
+	hr
+	br
+	if messages.erro
+		div(class="alert alert-danger")
+			each msg in messages.erro
+				b= msg
+				br
+		br
+	form(method="POST", action="/amigos/create", role="form")
+		div(class="form-group")
+			label Nome
+			input(type="text", class="form-control", name="nome", value="#{model.nome || ''}" placeholder="Nome", autofocus, required)
+		div(class="form-group")
+			label E-mail
+			input(type="email", class="form-control", name="email", value="#{model.email || ''}" placeholder="E-mail")
+		button(type="submit", class="btn btn-success") Salvar
+	br
+	br
+	a(href="/amigos") Voltar

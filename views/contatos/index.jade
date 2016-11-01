@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+	h1 Contatos
+	a(href="/contatos/create/#{id}",class="btn btn-success") Cadastrar
+	br
+	br
+	if messages.erro
+		div(class="alert alert-danger")
+			p #{messages.erro}
+		br
+	if messages.info
+		div(class="alert alert-success")
+			p #{messages.info}
+		br
+	if lista.length > 0
+		table(class="table table-striped")
+			thead
+				tr
+					th ID:
+					th Tipo:
+					th Telefone:					
+					th Ações:
+			tbody
+				each valor in lista
+					tr
+						td #{valor._id}
+						td #{valor.tipo}
+						td #{valor.telefone}						
+						td							
+							a(href="javascript: Excluir('#{valor._id}', '#{id}');", class="btn btn-danger")
+								span(class="glyphicon glyphicon-trash")
+	else
+		p Nenhum registro encontrado!
+
+block scripts
+	script(type="text/javascript").
+		function Excluir(contato, amigo){
+			var pergunta = confirm('Deseja realmente excluir?');
+			if(pergunta){
+				$.ajax({
+					url: '/contatos/delete/'+contato+'/'+amigo,
+					dataType: 'json',
+					type: 'POST',
+					statusCode: {
+						200: function(data){
+							alert(data);
+							window.location.reload();
+						},
+						400: function(data){
+							alert(data);
+						}
+					}
+				});
+			}
+		}
