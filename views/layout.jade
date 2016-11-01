@@ -6,7 +6,19 @@ html
     meta(http-equiv="X-UA-Compatible" content="IE-edge")
     title= title
     link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/mdb.min.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-  body
+  body(class="fixed-sn blue-skin")
+    header
+      nav(class="navbar navbar-fixed-top scrolling-navbar double-nav")
+        div(class="float-xs-left")
+          a(href="#" data-activates="slide-out" class="button-collapse")
+            i(class="fa fa-bars")
+        div(class="breadcrumb-dn")
+          p Material Design for Bootstrap
     block content
+    script(src="/js/mdb.min.js")
+    script(src="/js/tether.min.js")
+    script(src="/js/jquery-3.1.1.min.js")
+    script(src="/js/conf.min.js")
