@@ -1,0 +1,57 @@
+{
+  "name": "mdbootstrap",
+  "version": "4.1.1",
+  "description": "Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mdbootstrap/bootstrap-material-design.git"
+  },
+  "keywords": [
+    "material",
+    "design",
+    "bootstrap",
+    "mdbootstrap",
+    "mdb",
+    "framework",
+    "css",
+    "mobile-first",
+    "responsive"
+  ],
+  "author": {
+    "name": "MDBootstrap"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdbootstrap/bootstrap-material-design/issues"
+  },
+  "homepage": "https://github.com/mdbootstrap/bootstrap-material-design#readme",
+  "_id": "mdbootstrap@4.1.1",
+  "_shasum": "a5f79db54d29a2ac1c2413a5ecf8039431ee6de5",
+  "_from": "mdbootstrap@latest",
+  "_resolved": "https://registry.npmjs.org/mdbootstrap/-/mdbootstrap-4.1.1.tgz",
+  "_npmVersion": "3.10.3",
+  "_nodeVersion": "6.4.0",
+  "_npmUser": {
+    "name": "mdbootstrap",
+    "email": "support@mdbootstrap.com"
+  },
+  "dist": {
+    "shasum": "a5f79db54d29a2ac1c2413a5ecf8039431ee6de5",
+    "tarball": "https://registry.npmjs.org/mdbootstrap/-/mdbootstrap-4.1.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "mdbootstrap",
+      "email": "support@mdbootstrap.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/mdbootstrap-4.1.1.tgz_1472632663520_0.38525189203210175"
+  },
+  "directories": {}
+}
